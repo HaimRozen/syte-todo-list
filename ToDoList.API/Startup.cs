@@ -33,9 +33,9 @@ namespace ToDoList.API
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddScoped<ITodoListRepoitory, TodoListRepositoryMock>();
-            //services.AddSingleton<ITodoListRepoitory, TodoListRepositoryMock>();
-            services.AddScoped<IMongoDBConfiguration, MongoDBConfiguration>();
-            services.AddScoped<ITodoListRepoitory, TodoListRepositoryMongo>();
+            services.AddSingleton<ITodoListRepoitory, TodoListRepositoryMock>();
+            //services.AddScoped<IMongoDBConfiguration, MongoDBConfiguration>();
+            //services.AddScoped<ITodoListRepoitory, TodoListRepositoryMongo>();
 
             services.AddCors(options =>
             {
