@@ -33,9 +33,9 @@ namespace ToDoList.API
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddScoped<ITodoListRepoitory, TodoListRepositoryMock>();
-            services.AddSingleton<ITodoListRepoitory, TodoListRepositoryMock>();
-            //services.AddScoped<IMongoDBConfiguration, MongoDBConfiguration>();
-            //services.AddScoped<ITodoListRepoitory, TodoListRepositoryMongo>();
+            //services.AddSingleton<ITodoListRepoitory, TodoListRepositoryMock>();
+            services.AddScoped<IMongoDBConfiguration, MongoDBConfiguration>();
+            services.AddScoped<ITodoListRepoitory, TodoListRepositoryMongo>();
 
             services.AddCors(options =>
             {
@@ -52,12 +52,12 @@ namespace ToDoList.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
+            //if (env.IsDevelopment())
+            //{
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ToDoList.API v1"));
-            }
+            //}
 
             app.UseHttpsRedirection();
 

@@ -1,13 +1,10 @@
-version: '2'
+version: '3'
 services:
   todoapi:
     build:
       context: ./
       dockerfile: ./ToDoList.API/Dockerfile
     ports:
-      - "8080:80"
-      - "443:443"
+      - "80:80"
   mongodb:
     image: mongo
-    ports:
-      - "27017:27017"
